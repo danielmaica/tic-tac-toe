@@ -20,6 +20,7 @@ function initializeGame() {
     element.addEventListener('click', handleBoardClick)
   })
   win = false;
+  document.getElementById('start').innerText = 'Recomeçar!'
 }
 
 function getWinRegions() {
@@ -71,19 +72,18 @@ function handleBoardClick(ev) {
       span.innerText = 'O'
       vBoard[row][column] = 'O'
     }
-  }
-  console.clear()
-  console.table(vBoard)
-  disableRegion(span)
-  const winRegions = getWinRegions()
-  if (winRegions.length > 0) {
-    handleWin(winRegions)
-    document.querySelectorAll('.cursor-pointer').classList.remove('cursor-pointer')
-  } else if (vBoard.flat().includes('')) {
-    turnPlayer = turnPlayer == 'player1' ? 'player2' : 'player1'
-    updateTitle()
-  } else {
-    document.querySelector('h2').innerHTML = 'Empate!'
+    console.clear()
+    console.table(vBoard)
+    disableRegion(span)
+    const winRegions = getWinRegions()
+    if (winRegions.length > 0) {
+      handleWin(winRegions)
+    } else if (vBoard.flat().includes('')) {
+      turnPlayer = turnPlayer == 'player1' ? 'player2' : 'player1'
+      updateTitle()
+    } else {
+      document.querySelector('h2').innerHTML = 'Empate!'
+    }
   }
 }
 
