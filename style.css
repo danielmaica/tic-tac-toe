@@ -1,0 +1,53 @@
+html {
+  background-image: linear-gradient(to right bottom, #000000, #090909, #111111, #161616, #1b1b1b, #27282a, #34353a, #3f444a, #51626a, #658385, #7fa49a, #a6c4aa);
+  color: #2E8B57;
+  min-height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .2rem;
+}
+
+.players {
+  display: flex;
+  gap: .6rem;
+
+}
+
+label {
+  font-size: 2rem;
+}
+
+#gameBoard {
+  display: grid;
+  grid-template-columns: 11rem 11rem 11rem;
+  grid-template-rows: 11rem 11rem 11rem;
+  gap: .5rem;
+  margin-bottom: 1.5rem;
+  max-width: 35rem;
+}
+
+#gameBoard span {
+  background-color: #ddd;
+  display: grid;
+  place-content: center;
+  font-size: 5rem;
+  border-radius: 50%;
+}
+
+#gameBoard span.win {
+  background-color: #25a340;
+  color: #fff;
+}
+
+.cursor-pointer { 
+  cursor: pointer;
+}
