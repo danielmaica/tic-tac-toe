@@ -1,6 +1,6 @@
 html {
   background-image: linear-gradient(to right bottom, #000000, #090909, #111111, #161616, #1b1b1b, #27282a, #34353a, #3f444a, #51626a, #658385, #7fa49a, #a6c4aa);
-  color: #2E8B57;
+  color: #2ac56d;
   min-height: 100%;
 }
 
@@ -18,8 +18,15 @@ body {
 
 .players {
   display: flex;
-  gap: .6rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 
+.p1, .p2 {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
 }
 
 label {
@@ -45,9 +52,46 @@ label {
 
 #gameBoard span.win {
   background-color: #25a340;
-  color: #fff;
+  color: #ddd;
+}
+
+#start {
+  background-color: #25a340;
+  color: black;
+  padding: .3rem;
+  width: 100%;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+#start:hover {
+  background-color: #1ae045;
+  cursor: pointer;
 }
 
 .cursor-pointer { 
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #gameBoard {
+    grid-template-columns: 7rem 7rem 7rem;
+    grid-template-rows: 7rem 7rem 7rem;
+  }
+}
+@media (max-width: 425px) {
+  .players {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+  }
+  #gameBoard {
+    grid-template-columns: 5rem 5rem 5rem;
+    grid-template-rows: 5rem 5rem 5rem;
+  }
+  #gameBoard span {
+    font-size: 3rem;
+  }
 }
