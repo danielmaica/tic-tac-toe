@@ -55,7 +55,12 @@ function startGame() {
 
 function setCell(ev, cell) {
   ev.preventDefault();
-  if (gameIsOn !== 1) return;
+  if (gameIsOn !== 1) {
+    alert(
+      "O jogo não está em andamento. Clique em 'Iniciar Jogo' para começar."
+    );
+    return;
+  }
   if (cell.textContent !== "") return;
   cell.textContent = currentPlayer.dataset.value;
   cell.style.color =
