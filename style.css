@@ -162,17 +162,20 @@ input {
 }
 
 @media (max-width: 600px) {
+  body {
+    height: 70%;
+  }
+
   .players {
     flex-direction: column;
   }
 
   #scoreboard {
-    margin: 0.7rem 0;
     width: 100%;
   }
 
   .gameboard {
-    width: 80dvw;
-    height: 40dvh;
+    width: 70dvw;
+    height: 50dvh;
   }
 }
