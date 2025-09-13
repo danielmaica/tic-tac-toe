@@ -47,9 +47,6 @@ function startGame() {
     document.querySelector(".players").appendChild(scoreboard);
   }
   setCurrentPlayer();
-  document.getElementById(
-    "turn-indicator"
-  ).textContent = `Vez de: ${currentPlayer.value}`;
   btnStart.textContent = "Limpar tabuleiro";
 }
 
@@ -72,12 +69,15 @@ function setCell(ev, cell) {
 function setCurrentPlayer() {
   if (currentPlayer === "") {
     Math.random() < 0.5 ? (currentPlayer = x) : (currentPlayer = o);
+    document.getElementById("turn-indicator").innerHTML = `Vez de: <span id="${
+      currentPlayer.dataset.value === "X" ? "turn-x" : "turn-o"
+    }">${currentPlayer.value}</span>`;
     return;
   }
   currentPlayer = currentPlayer === x ? o : x;
-  document.getElementById(
-    "turn-indicator"
-  ).textContent = `Vez de: ${currentPlayer.value}`;
+  document.getElementById("turn-indicator").innerHTML = `Vez de: <span id="${
+    currentPlayer.dataset.value === "X" ? "turn-x" : "turn-o"
+  }">${currentPlayer.value}</span>`;
 }
 
 function clearTab() {
@@ -137,7 +137,9 @@ function checkWinner() {
     case 2:
       document.getElementById(
         "turn-indicator"
-      ).textContent = `O vencedor é: ${currentPlayer.value}!`;
+      ).innerHTML = `O vencedor é: <span id="${
+        currentPlayer.dataset.value === "X" ? "turn-x" : "turn-o"
+      }">${currentPlayer.value}</span>`;
       gameIsOn = 2;
       scores[currentPlayer.dataset.value]++;
       document.getElementById("score-x").textContent = scores.X;

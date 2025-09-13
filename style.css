@@ -43,6 +43,13 @@ h1 {
   color: var(--primary-color);
 }
 
+.p1-data,
+.p2-data {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .players > #px {
   color: var(--player-x-color);
 }
@@ -50,7 +57,7 @@ h1 {
   color: var(--player-o-color);
 }
 
-.players > input {
+input {
   width: 200px;
   padding: 5px 10px;
   font-size: 1rem;
@@ -116,6 +123,13 @@ h1 {
   color: var(--text-color);
 }
 
+#turn-x {
+  color: var(--player-x-color);
+}
+#turn-o {
+  color: var(--player-o-color);
+}
+
 .gameboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -145,4 +159,20 @@ h1 {
 .gameboard > .cell:hover {
   border: 2px solid var(--primary-color);
   box-shadow: 0 0.2rem 0.5rem var(--primary-color);
+}
+
+@media (max-width: 600px) {
+  .players {
+    flex-direction: column;
+  }
+
+  #scoreboard {
+    margin: 0.7rem 0;
+    width: 100%;
+  }
+
+  .gameboard {
+    width: 80dvw;
+    height: 40dvh;
+  }
 }
